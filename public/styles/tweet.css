@@ -1,3 +1,9 @@
+#tweets-container  {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .tweet {
   display: flex;
   flex-direction: column;
@@ -5,6 +11,12 @@
   padding: 3%;
   width: 100%;
   justify-content: space-between;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.tweet:hover {
+  box-shadow: 0.2em 0.2em 0.5em gray;
 }
 
 .tweet header {
@@ -46,15 +58,20 @@
   font-size: 0.6em;
   margin-left: 1%;
   margin-right: 1%;
+  align-items: center;
 }
-
 
 .icons {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
+  flex: 1;
 }
 
 .icons i {
+  margin-left: 2%;
+}
 
+.icons i:hover {
+  color: darkgoldenrod;
 }
