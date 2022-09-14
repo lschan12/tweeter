@@ -68,7 +68,7 @@ const submitForm = () => {
     $($errorContainer).slideUp();
     let text = $("#tweet-text").val();
     if (text === null || text === "") {
-      setTimeout(() => {
+      setTimeout(() => { // Using set timeout here and below so the updated error message doesn't display before container finishes sliding up
         $($errorContainer).slideDown(700);
         $(".error-container div p").text("Invalid Input");
       }, 500);
