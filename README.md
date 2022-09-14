@@ -4,10 +4,10 @@ Tweeter is a simple, single-page Twitter clone that utilizes HTML, CSS (SASS), J
 
 ## Final Product
 
-![Animated Buttons](https://github.com/lschan12/tweeter/blob/master/docs/Buttons.gif?raw=true)
-![Desktop Demo](https://github.com/lschan12/tweeter/blob/master/docs/Desktop_Demo.gif?raw=true)
-![Form Validation](https://github.com/lschan12/tweeter/blob/master/docs/Form_Validation.gif?raw=true)
-![Responsive Design](https://github.com/lschan12/tweeter/blob/master/docs/Responsive_Design.gif?raw=true)
+!["Animated Buttons"](https://github.com/lschan12/tweeter/blob/master/docs/Buttons.gif?raw=true)
+!["Desktop Demo"](https://github.com/lschan12/tweeter/blob/master/docs/Desktop_Demo.gif?raw=true)
+!["Form Validation"](https://github.com/lschan12/tweeter/blob/master/docs/Form_Validation.gif?raw=true)
+!["Responsive Design"](https://github.com/lschan12/tweeter/blob/master/docs/Responsive_Design.gif?raw=true)
 
 ## Dependencies
 
