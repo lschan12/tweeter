@@ -4,11 +4,18 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 $(document).ready(function() {
   loadtweets();
   submitForm();
+  toggleForm();
 });
+
+// XSS Prevention
+const escapes = (str) => {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
 // Generate tweet element
@@ -22,7 +29,7 @@ const createTweetElement = (obj) => {
       </div>
       <div class="handle">${obj.user.handle}</div>
     </header>
-    <div class="tweet-content">${obj.content.text}</div>
+    <div class="tweet-content">${escapes(obj.content.text)}</div>
     <footer>
       <div class="time-stamp">${timeago.format(obj["created_at"])}</div>
       <div class="icons">  
@@ -40,40 +47,48 @@ const createTweetElement = (obj) => {
 const renderTweets = (tweets) => {
   for (let tweet of tweets) {
     let generatedTweet = createTweetElement(tweet);
-    $("#tweets-container").append(generatedTweet);
+    $("#tweets-container").prepend(generatedTweet);
   }
 };
 
 const loadtweets = () => {
   $.get("/tweets", function(data) {
+    $("#tweets-container article").remove();
     renderTweets(data);
   });
 };
 
 const submitForm = () => {
   $("form").submit(function(e) {
+    e.preventDefault();
+    $(".error-container").slideUp();
     let text = $("#tweet-text").val();
     if (text === null || text === "") {
-      alert("Invalid Inpnut");
+      setTimeout(() => {
+        $(".error-container").slideDown(700);
+        $(".error-container div p").text("Invalid Input");
+      }, 500);
     } else if (text.length > 140) {
-      alert("Character limit exceeded");
+      setTimeout(() => {
+        $(".error-container").slideDown(700);
+        $(".error-container div p").text("Character Limit Exceeded");
+      }, 500);
     } else {
-      $.post("/tweets", $(this).serialize());
-    }
-    e.preventDefault();
+      $.post("/tweets", $(this).serialize())
+        .done(() => {
+          this.reset();
+          loadtweets();
+        });
+    };
   });
 };
 
-// const validateForm = (form) => {
-//   let text = $(form).val();
-//   console.log(text);
-//   if (text === null || text === "") {
-//     console.log("Input Invalid");
-//   } else if (text.length > 140) {
-//     console.log("Maximum Characters Reached");
-//   }
-// };
-
+const toggleForm = () => {
+  $("#newTweet").click(function() {
+    $(".new-tweet").slideToggle(600);
+    $("#tweet-text").focus();
+  });
+};
 
 
 

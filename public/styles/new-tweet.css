@@ -3,12 +3,38 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 5%;
+}
+
+.error-container {
+  display: none;
+}
+
+.error-message {
+  display: flex;
+  flex-direction: row;
+  border: 0.2em solid red;
+  color: red;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2%;
+  height: 3em;
+  width: 80%;
+  align-self: center;
 }
 
 .new-tweet button {
   font-family: "Bungee", cursive;
   background-color: #4056A1;
   color: #ffffff;
+  box-shadow: 0.05em 0.05em 0.05em gray;
+}
+
+.new-tweet button:hover {
+  box-shadow: none;
 }
 
 .new-tweet form {
@@ -21,7 +47,7 @@ label {
 
 #tweet-text {
   width: 100%;
-  height: 1.8em;
+  height: 1.6em;
   background: transparent;
   border-top: hidden;
   border-right-style: hidden;

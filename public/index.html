@@ -46,12 +46,18 @@
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <button id="back-to-top"><i class="fa-solid fa-angles-up"></i></button>
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <!-- <form action="/tweets" method="post"> -->
-          <form>
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text"></textarea>
+        <form>
+          <div class="error-container">
+            <div class="error-message">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <p></p>
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+          </div>
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
           <div class="button-counter">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>

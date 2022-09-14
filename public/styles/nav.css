@@ -12,12 +12,44 @@ nav {
   position: fixed;
   top: 0;
 }
+
 #logo {
   font-family: "Bungee", cursive;
 }
 
 #newTweet {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: column;
+  justify-content: center;
+  user-select: none;
   align-items: center;
+  cursor: pointer;
+}
+
+#newTweet i {
+  margin-top: 7%;
+}
+
+#newTweet:hover > i {
+  animation: updown 1s infinite linear;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20%);
+  }
+
+  50% {
+    transform: translateY(20%);
+  }
+
+  100% {
+    transform: translateY(-20%);
+  }
+}
+
+#toggle-form {
+  background: transparent;
+  outline: none;
+  border: none;
 }
