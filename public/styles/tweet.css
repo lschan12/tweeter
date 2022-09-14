@@ -1,10 +1,9 @@
-#tweets-container  {
+#tweets-container {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
-
-.tweet {
+#tweets-container .tweet {
   display: flex;
   flex-direction: column;
   border: solid black;
@@ -14,35 +13,26 @@
   margin-top: 2%;
   margin-bottom: 2%;
 }
-
-.tweet:hover {
-  box-shadow: 0.2em 0.2em 0.5em gray;
-}
-
-.tweet header {
+#tweets-container .tweet header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-
-.user {
+#tweets-container .tweet header .user {
   display: flex;
   flex-direction: row;
   flex: 1;
   align-items: center;
 }
-
-.user img {
+#tweets-container .tweet header .user img {
   margin-right: 2%;
   height: 1.5em;
 }
-
-.handle {
+#tweets-container .tweet header .handle {
   opacity: 0.4;
 }
-
-.tweet-content {
+#tweets-container .tweet .tweet-content {
   border-bottom: solid black;
   padding-bottom: 3%;
   padding-left: 1%;
@@ -50,8 +40,7 @@
   margin-bottom: 1%;
   font-weight: 500;
 }
-
-.tweet footer {
+#tweets-container .tweet footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -60,19 +49,19 @@
   margin-right: 1%;
   align-items: center;
 }
-
-.icons {
+#tweets-container .tweet footer .icons {
   display: flex;
   flex-direction: row;
   justify-content: end;
   flex: 1;
 }
-
-.icons i {
+#tweets-container .tweet footer .icons i {
   margin-left: 2%;
 }
-
-.icons i:hover {
+#tweets-container .tweet footer .icons i:hover {
   color: darkgoldenrod;
   cursor: pointer;
+}
+#tweets-container .tweet:hover {
+  box-shadow: 0.2em 0.2em 0.5em gray;
 }

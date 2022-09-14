@@ -6,7 +6,6 @@
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -14,11 +13,20 @@ html {
 /*
  * Global layout stuff
  */
+
+ $font-SSP: "Source Sans Pro", sans-serif;
+ $font-bungee: "Bungee", cursive;
+ $tweeter-blue: #4056A1;
+ @mixin theme($theme: bisque) {
+   background-color: $theme;
+   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
+ }
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $font-SSP;
   display: flex;
   flex-direction: column;
 }
@@ -26,7 +34,8 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-main {
+
+ main {
   width: 90%;
   display: flex;
   flex-flow: column;
@@ -34,7 +43,7 @@ main {
   align-self: center;
   align-items: center;
   background-color: #f4f1ec;
-}
+ }
 
 #back-to-top {
   position: fixed;
@@ -54,25 +63,28 @@ main {
 
 #back-to-top:hover {
   transform: scale(1.1);
-}
-#back-to-top:hover i {
-  animation: updown 1s infinite linear;
+  i {
+    animation: updown 1s infinite linear;
+  }
 }
 
 @keyframes updown {
   0% {
     transform: translateY(-20%);
   }
+
   50% {
     transform: translateY(20%);
   }
+
   100% {
     transform: translateY(-20%);
   }
 }
+
 @media screen and (min-width: 1200px) {
   nav {
-    background-color: #4056A1;
+    background-color: $tweeter-blue;
   }
   body {
     flex-direction: row;
@@ -88,18 +100,4 @@ main {
     padding-top: 2%;
     margin-top: 120px;
   }
-}
-#main-header {
-  margin-bottom: 5%;
-  height: 520px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: bisque;
-  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
-  color: white;
-  font-size: 2em;
-  text-align: center;
 }

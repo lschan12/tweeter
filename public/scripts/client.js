@@ -3,11 +3,13 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+/* eslint-env jquery */
+/* eslint-env browser */
+
 
 $(document).ready(function() {
   loadtweets();
   submitForm();
-  toggleForm();
 });
 
 // XSS Prevention
@@ -16,7 +18,6 @@ const escapes = (str) => {
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
-
 
 // Generate tweet element
 const createTweetElement = (obj) => {
@@ -43,7 +44,7 @@ const createTweetElement = (obj) => {
   return element;
 };
 
-// Generate tweets and append to tweet container
+// Generate multiple tweets and append to tweet container
 const renderTweets = (tweets) => {
   for (let tweet of tweets) {
     let generatedTweet = createTweetElement(tweet);
@@ -51,6 +52,7 @@ const renderTweets = (tweets) => {
   }
 };
 
+// Ajax request to get data from /tweets, empty tweets-container and then render
 const loadtweets = () => {
   $.get("/tweets", function(data) {
     $("#tweets-container").empty();
@@ -58,6 +60,7 @@ const loadtweets = () => {
   });
 };
 
+// Form Submission validation, reset input field and character counter, and reload the tweets with functions defined above
 const submitForm = () => {
   const $errorContainer = $(".error-container");
   $("form").submit(function(e) {
@@ -80,24 +83,13 @@ const submitForm = () => {
           this.reset();
           loadtweets();
         });
-    };
+    }
   });
 };
-
-const toggleForm = () => {
-  $("#newTweet").click(function() {
-    $(".new-tweet").slideToggle(600);
-    $("#tweet-text").focus();
-  });
-};
-
-
-
-
 
 /*
 
-Original Method that I don't want to delete because I think it looked pretty
+Original Method for createTweetElement() that I don't want to delete because I think it looked pretty
 
 // // Loops through the number of icons we have and create HTML tags for each
 // const generateIcons = (list) => {

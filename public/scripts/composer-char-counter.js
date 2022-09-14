@@ -1,8 +1,13 @@
+/* eslint-env jquery */
+/* eslint-env browser */
+
 $(document).ready(function() {
   textCounter();
   backToTop();
+  toggleForm();
 });
 
+// Function that decrements the counter based on text length in text area
 const textCounter = () => {
   $("#tweet-text").keyup(function(e) {
     $(this).height(0);
@@ -18,6 +23,7 @@ const textCounter = () => {
   });
 };
 
+// Detect if user is at top of page and display back-to-top button if not
 const showButton = () => {
   $(window).scroll(function() {
     if ($(this).scrollTop() !== 0) {
@@ -30,6 +36,7 @@ const showButton = () => {
   });
 };
 
+// Back-to-top button to scroll to top of page and focus on form text area
 const backToTop = () => {
   $("#back-to-top").hide();
   showButton();
@@ -40,3 +47,12 @@ const backToTop = () => {
     return false;
   });
 };
+
+// Form toggle button in the nav if user is at top of page that shows or hides the form
+const toggleForm = () => {
+  $("#newTweet").click(function() {
+    $(".new-tweet").slideToggle(600);
+    $("#tweet-text").focus();
+  });
+};
+

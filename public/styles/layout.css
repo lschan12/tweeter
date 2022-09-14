@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,12 +14,11 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif; 
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -26,8 +26,7 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
- main {
+main {
   width: 90%;
   display: flex;
   flex-flow: column;
@@ -35,7 +34,7 @@ body {
   align-self: center;
   align-items: center;
   background-color: #f4f1ec;
- }
+}
 
 #back-to-top {
   position: fixed;
@@ -56,8 +55,7 @@ body {
 #back-to-top:hover {
   transform: scale(1.1);
 }
-
-#back-to-top:hover > i {
+#back-to-top:hover i {
   animation: updown 1s infinite linear;
 }
 
@@ -65,16 +63,13 @@ body {
   0% {
     transform: translateY(-20%);
   }
-
   50% {
     transform: translateY(20%);
   }
-
   100% {
     transform: translateY(-20%);
   }
 }
-
 @media screen and (min-width: 1200px) {
   nav {
     background-color: #4056A1;

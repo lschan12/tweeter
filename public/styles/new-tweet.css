@@ -1,15 +1,104 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+main {
+  width: 90%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  background-color: #f4f1ec;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 1.5em;
+  right: 2em;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 0.7em;
+  border-radius: 50%;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+#back-to-top:hover {
+  transform: scale(1.1);
+}
+#back-to-top:hover i {
+  animation: updown 1s infinite linear;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20%);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(-20%);
+  }
+}
+@media screen and (min-width: 1200px) {
+  nav {
+    background-color: #4056A1;
+  }
+  body {
+    flex-direction: row;
+    justify-content: center;
+  }
+  #main-header {
+    width: 40%;
+    margin: 10%;
+    margin-top: 180px;
+  }
+  main {
+    padding: 5%;
+    padding-top: 2%;
+    margin-top: 120px;
+  }
+}
 .new-tweet {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 }
-
-.error-container {
+.new-tweet .error-container {
   display: none;
 }
-
-.error-message {
+.new-tweet .error-container .error-message {
   display: flex;
   flex-direction: row;
   border: 0.2em solid red;
@@ -24,27 +113,22 @@
   width: 80%;
   align-self: center;
 }
-
 .new-tweet button {
   font-family: "Bungee", cursive;
   background-color: #4056A1;
   color: #ffffff;
   box-shadow: 0.05em 0.05em 0.05em gray;
 }
-
 .new-tweet button:hover {
   box-shadow: none;
 }
-
 .new-tweet form {
   width: 100%;
 }
-
-label {
+.new-tweet label {
   font-weight: 600;
 }
-
-#tweet-text {
+.new-tweet #tweet-text {
   width: 100%;
   height: 1.6em;
   background: transparent;
@@ -55,16 +139,13 @@ label {
   outline: none;
   color: black;
   resize: none;
-  font-family: "Source Sans Pro", cursive;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
 }
-
-
-#tweet-text:focus {
+.new-tweet #tweet-text:focus {
   outline: none;
 }
-
-.button-counter {
+.new-tweet .button-counter {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

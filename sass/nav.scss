@@ -1,0 +1,47 @@
+@use "layout";
+
+nav {
+  height: 120px;
+  width: 100%;
+  color: #ffffff;
+  background: transparent;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+
+  #logo {
+    font-family: layout.$font-bungee
+  }
+
+  #newTweet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    user-select: none;
+    align-items: center;
+    cursor: pointer;
+    i {
+      margin-top: 7%;
+      animation: updown 1s infinite linear;
+    }
+  }
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-20%);
+  }
+
+  50% {
+    transform: translateY(20%);
+  }
+
+  100% {
+    transform: translateY(-20%);
+  }
+}
