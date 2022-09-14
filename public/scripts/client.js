@@ -53,24 +53,25 @@ const renderTweets = (tweets) => {
 
 const loadtweets = () => {
   $.get("/tweets", function(data) {
-    $("#tweets-container article").remove();
+    $("#tweets-container").empty();
     renderTweets(data);
   });
 };
 
 const submitForm = () => {
+  const $errorContainer = $(".error-container");
   $("form").submit(function(e) {
     e.preventDefault();
-    $(".error-container").slideUp();
+    $($errorContainer).slideUp();
     let text = $("#tweet-text").val();
     if (text === null || text === "") {
       setTimeout(() => {
-        $(".error-container").slideDown(700);
+        $($errorContainer).slideDown(700);
         $(".error-container div p").text("Invalid Input");
       }, 500);
     } else if (text.length > 140) {
       setTimeout(() => {
-        $(".error-container").slideDown(700);
+        $($errorContainer).slideDown(700);
         $(".error-container div p").text("Character Limit Exceeded");
       }, 500);
     } else {
@@ -89,7 +90,6 @@ const toggleForm = () => {
     $("#tweet-text").focus();
   });
 };
-
 
 
 

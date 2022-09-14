@@ -1,8 +1,8 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
   color: #ffffff;
+  background: transparent;
   padding-left: 1.5em;
   padding-right: 1.5em;
   display: flex;
@@ -28,10 +28,8 @@ nav {
 
 #newTweet i {
   margin-top: 7%;
-}
-
-#newTweet:hover > i {
   animation: updown 1s infinite linear;
+
 }
 
 @keyframes updown {
