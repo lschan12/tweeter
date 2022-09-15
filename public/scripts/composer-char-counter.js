@@ -10,7 +10,7 @@ $(document).ready(function() {
 // Function that decrements the counter based on text length in text area
 const textCounter = () => {
   $("#tweet-text").keyup(function(e) {
-    $(this).height(0);
+    $(this).height(0); // Set Textarea height based on number of lines
     $(this).height(this.scrollHeight);
     let charsLeft = 140 - $(this).val().length;
     let counter = $(this).parent().find("output");
@@ -23,7 +23,7 @@ const textCounter = () => {
   });
 };
 
-// Detect if user is at top of page and display back-to-top button if not
+// Detect if user is at top of page; if not, display back-to-top button and hide compose tweet button in nav bar
 const showButton = () => {
   $(window).scroll(function() {
     if ($(this).scrollTop() !== 0) {

@@ -60,7 +60,7 @@ const loadtweets = () => {
   });
 };
 
-// Form Submission validation, reset input field and character counter, and reload the tweets with functions defined above
+// Form Submission validation; once submitted reset input field and character counter, and reload the tweets with functions defined above
 const submitForm = () => {
   const $errorContainer = $(".error-container");
   $("form").submit(function(e) {
@@ -91,29 +91,32 @@ const submitForm = () => {
 
 Original Method for createTweetElement() that I don't want to delete because I think it looked pretty
 
-// // Loops through the number of icons we have and create HTML tags for each
-// const generateIcons = (list) => {
-//   let output = "";
-//   for (let i of list) {
-//     output += `<i class="fa-solid fa-${i}"></i>`;
-//   }
-//   return output;
-// };
-//
-// const createTweetElement = (obj) => {
-//  let iconList = ["flag", "repeat", "heart"];
-//  // Header
-//  let avatar = `<img src=${obj.user.avatars}></img>`;
-//  let username = `<div class="username">${obj.user.name}</div>`;
-//  let user = `<div class="user">${avatar}${username}</div>`;
-//  let handle = `<div class="handle">${obj.user.handle}</div>`;
-//  const header = `<header>${user}${handle}</header>`;
-//  const content = `<div class="tweet-content">${obj.content.text}</div>`;
-//  // Footer
-//  let timeStamp = `<div class = "time-stamp">${obj["created_at"]}</div>`;
-//  let icons = `<div class="icons">${generateIcons(iconList)}</div>`;
-//  const footer = `<footer>${timeStamp}${icons}</footer>`;
-//  return $(`<article class="tweet">${header}${content}${footer}</article>`);
-// };
+// Loops through the number of icons we have and create HTML tags for each
+const generateIcons = (list) => {
+  let output = "";
+  for (let i of list) {
+    output += `<i class="fa-solid fa-${i}"></i>`;
+  }
+  return output;
+};
+
+const createTweetElement = (obj) => {
+ let iconList = ["flag", "repeat", "heart"];
+ // Header
+ let avatar = `<img src=${obj.user.avatars}></img>`;
+ let username = `<div class="username">${obj.user.name}</div>`;
+ let user = `<div class="user">${avatar}${username}</div>`;
+ let handle = `<div class="handle">${obj.user.handle}</div>`;
+ const header = `<header>${user}${handle}</header>`;
+
+ const content = `<div class="tweet-content">${obj.content.text}</div>`;
+
+ // Footer
+ let timeStamp = `<div class = "time-stamp">${obj["created_at"]}</div>`;
+ let icons = `<div class="icons">${generateIcons(iconList)}</div>`;
+ const footer = `<footer>${timeStamp}${icons}</footer>`;
+ 
+ return $(`<article class="tweet">${header}${content}${footer}</article>`);
+};
 
 */
